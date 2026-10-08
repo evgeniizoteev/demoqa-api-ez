@@ -1,7 +1,7 @@
 [project]
 name = "demoqa-api-ez"
 version = "0.1.0"
-description = "Add your description here"
+description = "DemoQA REST API tests with pytest and requests"
 readme = "README.md"
 authors = [
     { name = "Evgenii Zoteev", email = "zemjexe@gmail.com" }
