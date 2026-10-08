@@ -1,0 +1,20 @@
+[project]
+name = "demoqa-api-ez"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Evgenii Zoteev", email = "zemjexe@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pytest>=9.1.1",
+    "requests>=2.34.2",
+]
+
+[project.scripts]
+demoqa-api-ez = "demoqa_api_ez:main"
+
+[build-system]
+requires = ["uv_build>=0.12.11,<0.13.0"]
+build-backend = "uv_build"
