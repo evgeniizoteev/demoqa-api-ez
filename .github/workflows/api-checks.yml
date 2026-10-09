@@ -21,4 +21,10 @@ jobs:
       - name: Check Python code
         run: uvx flake8 conftest.py tests
       - name: Run API tests
-        run: uv run pytest -v
+        run: uv run pytest -v --junitxml=reports/pytest-results.xml
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-results
+          path: reports/pytest-results.xml
