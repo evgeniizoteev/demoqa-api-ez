@@ -3,6 +3,8 @@ name: API checks
 on:
   pull_request:
   workflow_dispatch:
+  schedule:
+    - cron: '17 8 * * *'
 
 jobs:
   checks:
