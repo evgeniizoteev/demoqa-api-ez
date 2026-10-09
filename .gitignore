@@ -15,3 +15,6 @@ wheels/
 
 # Pytest cache
 .pytest_cache/
+
+pytest-results.xml
+reports/
