@@ -1,0 +1,21 @@
+name: API checks
+
+on:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v6
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+      - name: Install Python
+        run: uv python install
+      - name: Install dependencies
+        run: uv sync --locked
+      - name: Check Python code
+        run: uvx flake8 conftest.py tests
+      - name: Run API tests
+        run: uv run pytest -v
