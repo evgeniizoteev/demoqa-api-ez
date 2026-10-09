@@ -62,3 +62,20 @@ def test_create_user():
     deleted_body = deleted_response.json()
     assert deleted_body["code"] == "1207"
     assert deleted_body["message"] == "User not found!"
+
+
+def test_get_created_user(api_user):
+    user_id = api_user["user_id"]
+    headers = api_user["headers"]
+    username = api_user["username"]
+
+    response = requests.get(
+        f"https://demoqa.com/Account/v1/User/{user_id}",
+        headers=headers,
+        timeout=15,
+    )
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["userId"] == user_id
+    assert body["username"] == username

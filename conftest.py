@@ -38,6 +38,7 @@ def api_user():
     user_data = {
         "user_id": user_id,
         "headers": headers,
+        "username": username,
     }
 
     try:
