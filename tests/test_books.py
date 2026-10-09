@@ -21,7 +21,7 @@ def test_get_book_by_isbn():
     assert response.status_code == 200
     body = response.json()
     assert body["isbn"] == "9781449325862"
-    assert body["title"] == "Git Pocket Guide"
+    assert body["title"] == "Wrong title for CI practice"
 
 
 def test_get_book_with_unknown_isbn():
