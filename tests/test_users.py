@@ -79,3 +79,22 @@ def test_get_created_user(api_user):
     body = response.json()
     assert body["userId"] == user_id
     assert body["username"] == username
+
+
+def test_create_user_with_empty_password():
+    username = f"QAStudent_{uuid4().hex}"
+    payload = {
+        "userName": username,
+        "password": "",
+    }
+
+    response = requests.post(
+        "https://demoqa.com/Account/v1/User",
+        json=payload,
+        timeout=15,
+    )
+
+    assert response.status_code == 400
+    body = response.json()
+    assert body["code"] == "1200"
+    assert body["message"] == "UserName and Password required."
